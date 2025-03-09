@@ -76,32 +76,32 @@ struct SettingsPage {
         .alignItems(VerticalAlign.Center)
       }
       .width('100%')
-      .height('85%')
+      .height('90%')
 
       // 底部导航栏
       Row() {
         Column() {
-          // Image($r("app.media.sense_icon")) // 确保图片资源路径正确
-          //   .width(25)
-          //   .height(25)
+          Image($r("app.media.sense_icon")) // 确保图片资源路径正确
+            .width(25)
+            .height(25)
           Text("感知")
             .fontSize(18)
         }
         .alignItems(HorizontalAlign.Center) // 设置水平对齐方式
 
         Column() {
-          // Image($r("app.media.home_icon")) // 确保图片资源路径正确
-          //   .width(25)
-          //   .height(25)
+          Image($r("app.media.home_icon")) // 确保图片资源路径正确
+            .width(25)
+            .height(25)
           Text("主页")
             .fontSize(18)
         }
         .alignItems(HorizontalAlign.Center) // 设置水平对齐方式
 
         Column() {
-          // Image($r("app.media.settings_icon")) // 确保图片资源路径正确
-          //   .width(25)
-          //   .height(25)
+          Image($r("app.media.settings_icon")) // 确保图片资源路径正确
+            .width(25)
+            .height(25)
           Text("设置")
             .fontSize(18)
             .fontColor(Color.Orange)
@@ -112,7 +112,7 @@ struct SettingsPage {
       .alignItems(VerticalAlign.Center) // 设置垂直对齐方式
       .justifyContent(FlexAlign.SpaceAround) // 设置主轴对齐方式
       .backgroundColor(Color.White) // 设置背景颜色
-      .height(60) // 设置高度
+      .height('10%') // 设置高度
       .width('100%') // 设置宽度
     }
     .backgroundColor(Color.White) // 设置背景颜色
