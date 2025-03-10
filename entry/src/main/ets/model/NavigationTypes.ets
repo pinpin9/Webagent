@@ -1,4 +1,4 @@
-export type MainPage = 'home' | 'sense' | 'settings';
+export type MainPage = 'home' | 'sense' | 'settings' | 'instruction' | 'history';
 
 export interface NavItemConfig {
   icon: Resource;
