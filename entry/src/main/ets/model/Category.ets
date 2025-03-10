@@ -1,10 +1,10 @@
-export interface CategoryModel {
+export interface Category {
   id: string;
   name: string;
   icon: Resource;
 }
 
-export const DefaultCategories: CategoryModel[] = [
+export const DefaultCategories: Category[] = [
   {
     id: 'shopping',
     name: '购物',

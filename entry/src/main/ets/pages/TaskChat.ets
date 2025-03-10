@@ -1,14 +1,19 @@
 import router from '@ohos.router';
 import { Message, MessageBubble } from '../components/MessageBubble';
-import {CategoryGrid,CategoryItem}from '../components/CategoryGrid'
+import {CategoryGrid}from '../components/CategoryGrid'
+import { DefaultCategories,Category } from '../model/Category';
 
 @Component
 export struct TaskChatPage {
   @State inputText: string = ''
   @State messages: Message[] = []
-  categories: CategoryItem[] = []
+  // private categories: Category[] = DefaultCategories
   build() {
     Column() {
+      //分类网格
+      CategoryGrid({
+        categories: DefaultCategories,
+      }).margin({ bottom: 12 })
 
       // 消息列表
       List({ space: 12 }) {
@@ -20,7 +25,6 @@ export struct TaskChatPage {
       }
       .layoutWeight(1)
       .alignListItem(ListItemAlign.Center)
-
 
       // 输入区域
       Column() {
@@ -51,20 +55,17 @@ export struct TaskChatPage {
       .backgroundColor('#F5F5F5')
     }
   }
-  private handleCategoryClick(category: string) {
-    console.log(`选中分类: ${category}`)
-    // 这里可以添加分类筛选逻辑
-  }
 
+  /** 目前是模拟，后续需要修改**/
   private handleSend = () => {
     if (this.inputText.trim()) {
-      const currentInput = this.inputText // 保存当前输入内容
+      const currentInput = this.inputText
       this.inputText = ''
-      // 1. 立即添加用户消息
+      //添加用户消息
       this.messages = [...this.messages,
         new Message(currentInput, 'user', new Date())]
 
-      // 3. 延迟1秒添加Agent回复
+      // 延迟1秒添加Agent回复
       setTimeout(() => {
         this.messages = [...this.messages,
           new Message(`正在处理：${currentInput}`, 'agent', new Date())]

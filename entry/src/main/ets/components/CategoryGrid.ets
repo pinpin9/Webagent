@@ -1,46 +1,59 @@
-import {CategoryModel} from '../model/Category'
+import { Category } from '../model/Category'
 
 @Component
 export struct CategoryItem {
-  @Prop category: CategoryModel      // 接收模型数据
+  @Prop category: Category
+  @State isHover: boolean = false
 
   build() {
     Column() {
-      Image(this.category.icon)      // 使用模型中的图标
-        .width(48)
-        .height(48)
-        .margin({ bottom: 8 })
+      Image(this.category.icon)
+        .width('50%')
+        .height('50%')
+        .margin({bottom:5})
 
-      Text(this.category.name)       // 使用模型中的名称
+      Text(this.category.name)
         .fontSize(14)
         .fontColor('#333333')
     }
-    .width('100%')
-    .height(120)
+    .width('86%')
+    .height('86%')
     .backgroundColor('#FFFFFF')
     .borderRadius(16)
+    .justifyContent(FlexAlign.Center)
+    .shadow(this.isHover ? {
+      radius: 8,
+      color: '#90CAF9',
+      offsetX: 2,
+      offsetY: 2
+    } : undefined)
+    .onHover(v => this.isHover = v)
   }
 }
 
 @Component
 export struct CategoryGrid {
-  @Prop categories: CategoryModel[]  // 正确定义Prop类型
+  @Prop categories: Category[]
 
   build() {
     Grid() {
-      ForEach(this.categories, (item: CategoryModel) => {
-        GridItem() {
-          CategoryItem({
-            category: item,          // 传递模型数据
-          })
-        }
-      })
+      // 添加id参数作为唯一标识
+      ForEach(this.categories,
+        (item: Category) => {
+          GridItem() {
+            CategoryItem({ category: item })
+          }
+        },
+        (item: Category) => item.id,
+      )
     }
     .columnsTemplate('1fr 1fr 1fr')
     .rowsTemplate('1fr 1fr')
-    .columnsGap(16)
-    .rowsGap(16)
-    .padding(24)
+    .columnsGap(5)
+    .rowsGap(5)
+    .padding(5)
     .width('100%')
+    .height('40%')
+    .backgroundColor('#E3F2FD')
   }
 }
