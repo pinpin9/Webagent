@@ -1,7 +1,7 @@
 import router from '@ohos.router';
 import { Message, MessageBubble } from '../components/MessageBubble';
-import {CategoryGrid}from '../components/CategoryGrid'
-import { DefaultCategories,Category } from '../model/Category';
+
+
 
 @Component
 export struct TaskChatPage {
@@ -10,11 +10,6 @@ export struct TaskChatPage {
   // private categories: Category[] = DefaultCategories
   build() {
     Column() {
-      //分类网格
-      CategoryGrid({
-        categories: DefaultCategories,
-      }).margin({ bottom: 12 })
-
       // 消息列表
       List({ space: 12 }) {
         ForEach(this.messages, (msg: Message) => {

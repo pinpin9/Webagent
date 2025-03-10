@@ -1,6 +1,7 @@
 import { BottomNavBar } from '../components/BottomNavBar';
 import { MainPage } from '../model/NavigationTypes';
 import { TaskChatPage } from './TaskChat'
+import { HomePage} from './Home'
 
 @Entry
 @Component
@@ -28,7 +29,7 @@ export struct MainNavigation {
   @Builder
   private CurrentPage() {
     if (this.currentPage === 'home') {
-
+      HomePage().layoutWeight(1)
     } else if (this.currentPage === 'sense') {
       TaskChatPage().layoutWeight(1)
     } else {
