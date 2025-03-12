@@ -8,7 +8,7 @@ import { SettingsPage } from './Settings';
 @Entry
 @Component
 export struct MainNavigation {
-  @State currentPage: MainPage = 'home';
+  @StorageLink('currentPage') currentPage:string ='home'
 
   build() {
     Column() {
@@ -31,7 +31,7 @@ export struct MainNavigation {
   @Builder
   private CurrentPage() {
     if (this.currentPage === 'home') {
-      HomePage({currentPage:this.currentPage}).layoutWeight(1)
+      HomePage().layoutWeight(1)
     } else if (this.currentPage === 'sense') {
       TaskChatPage().layoutWeight(1)
     } else if (this.currentPage === 'history') { // 历史记录

@@ -5,6 +5,10 @@ import { Message, MessageBubble } from '../components/MessageBubble';
 
 @Component
 export struct TaskChatPage {
+  onPageShow(): void {
+
+  }
+
   @State inputText: string = ''
   @State messages: Message[] = []
   // private categories: Category[] = DefaultCategories

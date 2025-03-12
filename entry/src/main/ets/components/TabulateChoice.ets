@@ -3,7 +3,7 @@ import { Tabulate } from "../model/Tabulate"
 
 @Component
 export struct TabulateChoice{
-  @Link currentPage: MainPage
+  @StorageLink('currentPage') currentPage:string =''
   @Prop tabulates:Tabulate[]
   build() {
     List(){
