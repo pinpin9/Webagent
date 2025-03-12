@@ -1,25 +1,14 @@
-import router from '@ohos.router';
-import { Message, MessageBubble } from '../components/MessageBubble';
-
+import { Message, MessageList } from '../components/MessageList';
 
 
 @Component
 export struct TaskChatPage {
   @State inputText: string = ''
   @State messages: Message[] = []
-  // private categories: Category[] = DefaultCategories
+
   build() {
     Column() {
-      // 消息列表
-      List({ space: 12 }) {
-        ForEach(this.messages, (msg: Message) => {
-          ListItem() {
-            MessageBubble({ message: msg })
-          }
-        }, (msg:Message) => msg.timestamp.getTime().toString())
-      }
-      .layoutWeight(1)
-      .alignListItem(ListItemAlign.Center)
+      MessageList({messages:this.messages})
 
       // 输入区域
       Column() {

@@ -1,7 +1,7 @@
-import { MainPage } from "./NavigationTypes";
+import { Page } from "./NavigationTypes";
 
 export interface Tabulate{
-  name: MainPage;
+  name: Page;
   text: string;
   icon: Resource;
 }

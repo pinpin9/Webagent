@@ -1,50 +1,19 @@
 import { Category } from '../model/Category'
 
 @Component
-export struct CategoryItem {
-  @Prop category: Category
-  @State isHover: boolean = false
-
-  build() {
-    Column() {
-      Image(this.category.icon)
-        .width('50%')
-        .height('50%')
-        .margin({bottom:5})
-
-      Text(this.category.name)
-        .fontSize(14)
-        .fontColor('#333333')
-    }
-    .width('86%')
-    .height('86%')
-    .backgroundColor('#FFFFFF')
-    .borderRadius(16)
-    .justifyContent(FlexAlign.Center)
-    .shadow(this.isHover ? {
-      radius: 8,
-      color: '#90CAF9',
-      offsetX: 2,
-      offsetY: 2
-    } : undefined)
-    .onHover(v => this.isHover = v)
-  }
-}
-
-@Component
 export struct CategoryGrid {
   @Prop categories: Category[]
+  @State hoveredId: string | null = null
 
   build() {
     Grid() {
-      // 添加id参数作为唯一标识
       ForEach(this.categories,
         (item: Category) => {
           GridItem() {
-            CategoryItem({ category: item })
+            CategoryItem({item:item})
           }
         },
-        (item: Category) => item.id,
+        (item: Category) => item.id
       )
     }
     .columnsTemplate('1fr 1fr 1fr')
@@ -55,5 +24,41 @@ export struct CategoryGrid {
     .width('100%')
     .height('40%')
     .backgroundColor('#E3F2FD')
+
+  }
+}
+
+@Component
+struct CategoryItem {
+  @Prop item: Category
+  @State private isHovered: boolean = false
+
+  build() {
+    Column() {
+      Image(this.item.icon)
+        .width('50%')
+        .height('50%')
+        .margin({ bottom: 5 })
+        .interpolation(ImageInterpolation.High) // 开启高质量缩放
+
+      Text(this.item.name)
+        .fontSize(14)
+        .fontColor('#333333')
+        .fontWeight(FontWeight.Medium)
+    }
+    .width('86%')
+    .height('86%')
+    .backgroundColor('#FFFFFF')
+    .borderRadius(16)
+    .justifyContent(FlexAlign.Center)
+    .onHover((isHover: boolean) => {
+      this.isHovered = isHover
+    })
+    .shadow(this.isHovered ? {
+      radius: 8,
+      color: '#90CAF9',
+      offsetX: 2,
+      offsetY: 2
+    } : undefined)
   }
 }

@@ -1,5 +1,5 @@
 import { BottomNavBar } from '../components/BottomNavBar';
-import { MainPage } from '../model/NavigationTypes';
+import { Page } from '../model/NavigationTypes';
 import { TaskChatPage } from './TaskChat'
 import { HomePage} from './Home'
 import { HistoryPage } from './History';
@@ -7,8 +7,8 @@ import { SettingsPage } from './Settings';
 
 @Entry
 @Component
-export struct MainNavigation {
-  @State currentPage: MainPage = 'home';
+struct MainNavigation {
+  @State currentPage: Page = 'home';
 
   build() {
     Column() {
@@ -20,9 +20,9 @@ export struct MainNavigation {
       }
       .title('智能助手')
       .titleMode(NavigationTitleMode.Mini)
-      .navBarPosition(NavBarPosition.Start) // 标题栏置顶
+      .navBarPosition(NavBarPosition.Start)
       .mode(NavigationMode.Stack) // 堆栈导航模式
-      .hideBackButton(true)
+
     }
     .width('100%')
     .height('100%')

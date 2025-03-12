@@ -2,13 +2,13 @@ import { DefaultCategories,Category } from '../model/Category';
 import {CategoryGrid}from '../components/CategoryGrid'
 import { TabulateChoice } from '../components/TabulateChoice';
 import { DefaultTabulate } from '../model/Tabulate';
-import { MainPage } from '../model/NavigationTypes';
+import { Page } from '../model/NavigationTypes';
 import { RecommendTopics } from '../components/RecommendTopics';
 import { DefaultRecommends } from '../model/Recommend';
 
 @Component
 export struct HomePage{
-  @Link currentPage: MainPage
+  @Link currentPage: Page
 
   build() {
     Column(){

@@ -1,8 +1,8 @@
-import { NavItemConfig, MainPage, NavItems } from '../model/NavigationTypes';
+import { NavItemConfig, Page, NavItems } from '../model/NavigationTypes';
 
 @Component
 export struct BottomNavBar {
-  @Link currentPage: MainPage;
+  @Link currentPage: Page;
 
   build() {
     Row() {

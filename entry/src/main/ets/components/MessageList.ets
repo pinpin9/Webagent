@@ -1,5 +1,23 @@
 @Component
-export struct MessageBubble {
+export struct MessageList {
+  @Prop messages: Message[]
+
+  build() {
+    List({ space: 12 }) {
+      ForEach(this.messages, (msg: Message) => {
+        ListItem() {
+          MessageBubble({ message: msg })
+        }
+      }, (msg:Message) => msg.timestamp.getTime().toString())
+    }
+    .layoutWeight(1)
+    .width('100%')
+    .alignListItem(ListItemAlign.Center)
+  }
+}
+
+@Component
+struct MessageBubble {
   @Prop message: Message
 
   build() {

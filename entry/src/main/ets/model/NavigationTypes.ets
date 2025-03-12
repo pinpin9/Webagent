@@ -1,9 +1,9 @@
-export type MainPage = 'home' | 'sense' | 'settings' | 'instruction' | 'history';
+export type Page = 'home' | 'sense' | 'settings' | 'instruction' | 'history';
 
 export interface NavItemConfig {
   icon: Resource;
   text: string;
-  pageName: MainPage;
+  pageName: Page;
 }
 
 export const NavItems: NavItemConfig[] = [

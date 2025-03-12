@@ -1,9 +1,9 @@
-import { MainPage } from "../model/NavigationTypes"
+import { Page } from "../model/NavigationTypes"
 import { Tabulate } from "../model/Tabulate"
 
 @Component
 export struct TabulateChoice{
-  @Link currentPage: MainPage
+  @Link currentPage: Page
   @Prop tabulates:Tabulate[]
   build() {
     List(){
