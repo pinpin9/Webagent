@@ -4,7 +4,8 @@ import { RecommendItem } from "../model/Recommend"
 export struct RecommendTopics{
   @Prop recommends: RecommendItem[]
   build() {
-    Column(){
+    Row(){
+      Text('推荐')
       List(){
         ForEach(this.recommends, (item: RecommendItem) => {
           ListItem(){
@@ -18,6 +19,9 @@ export struct RecommendTopics{
         });
       }.listDirection(Axis.Horizontal)
     }
+    .width('100%')
+    .height(50)
+    .alignItems(VerticalAlign.Center)
   }
 
   private navigateToSensePage(content: string){

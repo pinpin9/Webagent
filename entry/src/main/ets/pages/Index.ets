@@ -8,7 +8,7 @@ import { SettingsPage } from './Settings';
 @Entry
 @Component
 export struct MainNavigation {
-  @State currentPage: MainPage = 'sense';
+  @State currentPage: MainPage = 'home';
 
   build() {
     Column() {

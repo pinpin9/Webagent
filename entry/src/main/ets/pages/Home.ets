@@ -23,24 +23,16 @@ export struct HomePage{
         currentPage: this.currentPage
       }).margin({ bottom: 12 })
 
-      Row({}){
-        Column(){
-          Text("推荐")
-            .fontSize(20)
-        }
-        Column(){
+      Row(){
           RecommendTopics({
             recommends: DefaultRecommends
           })
-        }
       }
       .alignItems(VerticalAlign.Bottom)
-      .height("100%")
-      .backgroundColor(Color.Blue)
-      .width('100%')
+      .layoutWeight(1)
+
       // .position({bottom:0}) // 确保固定在底部
       // .margin({ bottom: 12 })
-
     }
   }
 }
