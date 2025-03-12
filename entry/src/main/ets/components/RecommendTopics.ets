@@ -1,11 +1,25 @@
 import { RecommendItem } from "../model/Recommend"
+import router from '@ohos.router';
 
 @Component
 export struct RecommendTopics{
   @Prop recommends: RecommendItem[]
+  @StorageLink('currentPage') currentPage:string=''
   build() {
     Row(){
-      Text('推荐')
+      Column(){
+        Text('推荐')
+          .fontColor('#FAFAFA')
+      }
+      .backgroundColor('#F2BA02')
+      .alignItems(HorizontalAlign.Center)
+      .justifyContent(FlexAlign.Center)
+      .opacity(0.7)
+      .height('80%')
+      .width(60)
+      .borderRadius(15)
+      .margin({left: 10})
+
       List(){
         ForEach(this.recommends, (item: RecommendItem) => {
           ListItem(){
@@ -13,7 +27,9 @@ export struct RecommendTopics{
               Button(item.content)
                 .height(40)
                 .margin(8)
-                .onClick(() => this.navigateToSensePage(item.content));
+                .backgroundColor('#4874CB')
+                .opacity(0.8)
+                .onClick(() => this.currentPage = 'sense');
             }
           }
         });

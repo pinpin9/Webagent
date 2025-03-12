@@ -1,9 +1,9 @@
-import { Page } from "../model/NavigationTypes"
+import { MainPage } from "../model/NavigationTypes"
 import { Tabulate } from "../model/Tabulate"
 
 @Component
 export struct TabulateChoice{
-  @Link currentPage: Page
+  @StorageLink('currentPage') currentPage:string =''
   @Prop tabulates:Tabulate[]
   build() {
     List(){

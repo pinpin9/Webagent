@@ -3,6 +3,10 @@ import { Message, MessageList } from '../components/MessageList';
 
 @Component
 export struct TaskChatPage {
+  onPageShow(): void {
+
+  }
+
   @State inputText: string = ''
   @State messages: Message[] = []
 

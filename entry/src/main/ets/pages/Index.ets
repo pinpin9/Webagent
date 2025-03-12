@@ -1,5 +1,5 @@
 import { BottomNavBar } from '../components/BottomNavBar';
-import { Page } from '../model/NavigationTypes';
+import { MainPage } from '../model/NavigationTypes';
 import { TaskChatPage } from './TaskChat'
 import { HomePage} from './Home'
 import { HistoryPage } from './History';
@@ -7,8 +7,8 @@ import { SettingsPage } from './Settings';
 
 @Entry
 @Component
-struct MainNavigation {
-  @State currentPage: Page = 'home';
+export struct MainNavigation {
+  @StorageLink('currentPage') currentPage:string ='home'
 
   build() {
     Column() {
@@ -20,9 +20,9 @@ struct MainNavigation {
       }
       .title('智能助手')
       .titleMode(NavigationTitleMode.Mini)
-      .navBarPosition(NavBarPosition.Start)
+      .navBarPosition(NavBarPosition.Start) // 标题栏置顶
       .mode(NavigationMode.Stack) // 堆栈导航模式
-
+      .hideBackButton(true)
     }
     .width('100%')
     .height('100%')
@@ -31,7 +31,7 @@ struct MainNavigation {
   @Builder
   private CurrentPage() {
     if (this.currentPage === 'home') {
-      HomePage({currentPage:this.currentPage}).layoutWeight(1)
+      HomePage().layoutWeight(1)
     } else if (this.currentPage === 'sense') {
       TaskChatPage().layoutWeight(1)
     } else if (this.currentPage === 'history') { // 历史记录

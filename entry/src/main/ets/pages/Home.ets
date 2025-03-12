@@ -2,13 +2,12 @@ import { DefaultCategories,Category } from '../model/Category';
 import {CategoryGrid}from '../components/CategoryGrid'
 import { TabulateChoice } from '../components/TabulateChoice';
 import { DefaultTabulate } from '../model/Tabulate';
-import { Page } from '../model/NavigationTypes';
 import { RecommendTopics } from '../components/RecommendTopics';
 import { DefaultRecommends } from '../model/Recommend';
 
 @Component
 export struct HomePage{
-  @Link currentPage: Page
+  @StorageLink('currentPage') currentPage:string =''
 
   build() {
     Column(){
@@ -20,7 +19,6 @@ export struct HomePage{
       // 选项列表
       TabulateChoice({
         tabulates: DefaultTabulate,
-        currentPage: this.currentPage
       }).margin({ bottom: 12 })
 
       Row(){
