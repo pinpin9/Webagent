@@ -1,4 +1,3 @@
-import { MainPage } from "../model/NavigationTypes"
 import { Tabulate } from "../model/Tabulate"
 
 @Component

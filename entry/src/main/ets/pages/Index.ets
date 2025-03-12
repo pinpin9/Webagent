@@ -1,5 +1,4 @@
 import { BottomNavBar } from '../components/BottomNavBar';
-import { MainPage } from '../model/NavigationTypes';
 import { TaskChatPage } from './TaskChat'
 import { HomePage} from './Home'
 import { HistoryPage } from './History';
@@ -7,7 +6,7 @@ import { SettingsPage } from './Settings';
 
 @Entry
 @Component
-export struct MainNavigation {
+struct MainNavigation {
   @StorageLink('currentPage') currentPage:string ='home'
 
   build() {

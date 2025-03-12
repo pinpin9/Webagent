@@ -1,5 +1,5 @@
 import { RecommendItem } from "../model/Recommend"
-import router from '@ohos.router';
+
 
 @Component
 export struct RecommendTopics{
