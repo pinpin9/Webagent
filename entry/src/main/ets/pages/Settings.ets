@@ -18,13 +18,13 @@ export struct SettingsPage {
         .fontWeight(FontWeight.Bold)
         .width('100%')
         .align(Alignment.Start)
-        .margin({ top: 20, bottom: 20 });
+        .margin({ top: 10, bottom: 20 });
 
       // 语言偏好设置
       Row(){
         Text('语言偏好')
           .fontSize(18)
-          .margin({ top: 10, bottom: 10 });
+          .margin({ top: 10, bottom: 10, left:10 });
 
         TextPicker({ range: this.languageOptions, value: this.language })
           .onChange((value: string | string[], index: number | number[]) => {
@@ -34,14 +34,17 @@ export struct SettingsPage {
           })
           .width('80%')
           .height(40)
-          .margin({ bottom: 20 });
+          .margin(5);
       }
+      .borderRadius(5)
+      .width('100%')
+      .backgroundColor(Color.White)
 
       // 默认浏览器设置
       Row(){
         Text('默认浏览器')
           .fontSize(18)
-          .margin({ top: 10, bottom: 10 });
+          .margin({ top: 10, bottom: 10, left:10 });
 
         TextPicker({ range: this.browserOptions, value: this.browser })
           .onChange((value: string | string[], index: number | number[]) => {
@@ -51,8 +54,11 @@ export struct SettingsPage {
           })
           .width('80%')
           .height(40)
-          .margin({ bottom: 20 });
+          .margin(5);
       }
+      .width('100%')
+      .backgroundColor(Color.White)
+      .borderRadius(5)
 
       // 保存按钮
       Button('保存设置')
@@ -68,7 +74,7 @@ export struct SettingsPage {
     .width('100%')
     .height('100%')
     .padding(20)
-    .backgroundColor(Color.White);
+    .backgroundColor('#f2f4f5');
   }
 
   // 保存设置
