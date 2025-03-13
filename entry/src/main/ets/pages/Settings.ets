@@ -34,7 +34,8 @@ export struct SettingsPage {
           })
           .width('80%')
           .height(40)
-          .margin(5);
+          .margin(5)
+          .selectedTextStyle({color: Color.Black, font: {size: 20, weight: FontWeight.Normal}});
       }
       .borderRadius(5)
       .width('100%')
@@ -52,6 +53,7 @@ export struct SettingsPage {
               this.browser = value; // 更新选择的浏览器
             }
           })
+          .selectedTextStyle({color: Color.Black, font: {size: 20, weight: FontWeight.Normal}})
           .width('80%')
           .height(40)
           .margin(5);
