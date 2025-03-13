@@ -1,0 +1,1 @@
+AppStorage.setOrCreate('currentPage','home')
