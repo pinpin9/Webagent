@@ -2,32 +2,7 @@ import { Message } from "./MessageList"
 
 @Component
 export struct HistoryList {
-  @Prop historyList: HistoryInfo[] = [
-    new HistoryInfo(
-      '1',
-      '14:30',
-      '2023-07-20',
-      [
-        new Message('请帮我搜索如何做一份大餐', 'user', new Date())
-      ]
-    ),
-    new HistoryInfo(
-      '2',
-      '14:30',
-      '2023-07-20',
-      [
-        new Message('请帮我搜索如何做一份大餐', 'user', new Date())
-      ]
-    ),
-    new HistoryInfo(
-      '3',
-      '14:30',
-      '2023-07-20',
-      [
-        new Message('请帮我搜索如何做一份大餐', 'user', new Date())
-      ]
-    )
-  ]
+  @Prop historyList: HistoryInfo[]
 
   build() {
     List() {
@@ -62,13 +37,14 @@ struct HistoryItem {
         Text(this.info.date)
           .fontSize(14)
           .fontColor('#666')
+
       }
       .justifyContent(FlexAlign.SpaceBetween)
       .width('100%')
 
       // 消息预览
       Text(this.info.messages[0]?.content || '无记录内容')
-        .fontSize(16)
+        .fontSize(20)
         .fontColor('#333')
         .maxLines(1)
         .textOverflow({ overflow: TextOverflow.Ellipsis })
@@ -78,19 +54,10 @@ struct HistoryItem {
     .padding(4)
     .border({
       width: {
-        top: 1,
-        right: 1,
-        bottom: 1,
-        left: 1
+        bottom: 1
       },
       color: '#E8E8E8',
       style: BorderStyle.Solid
-    })
-    .shadow({
-      radius: 8,
-      color: 'rgba(0,0,0,0.2)',
-      offsetX: 2,
-      offsetY: 2
     })
     .height('13%')
     .width('100%')
