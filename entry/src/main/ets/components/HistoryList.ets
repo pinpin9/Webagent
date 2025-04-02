@@ -23,8 +23,6 @@ export struct HistoryList {
 @Component
 struct HistoryItem {
   @Prop info: HistoryInfo
-  @State private isPressed: boolean = false
-
 
   build() {
     Column() {
@@ -41,15 +39,27 @@ struct HistoryItem {
       }
       .justifyContent(FlexAlign.SpaceBetween)
       .width('100%')
+      .height('25%')
+      Row() {
+        Text(this.info.messages[0]?.content || '无记录内容')
+            .fontSize(20)
+            .fontColor('#333')
+            .maxLines(1)
+            .textOverflow({ overflow: TextOverflow.Ellipsis })
+            .width('70%')
 
-      // 消息预览
-      Text(this.info.messages[0]?.content || '无记录内容')
-        .fontSize(20)
-        .fontColor('#333')
-        .maxLines(1)
-        .textOverflow({ overflow: TextOverflow.Ellipsis })
-        .margin({ top: 12 })
-        .width('100%')
+        Image($r('app.media.more')).bindMenu([
+          {
+            value: '删除',
+            action: () => {
+
+            }
+          }
+        ]).width(20).height(20)
+      }
+      .width('100%').height('75%')
+      .justifyContent(FlexAlign.SpaceBetween)
+      .alignItems(VerticalAlign.Center)
     }
     .padding(4)
     .border({
@@ -62,6 +72,7 @@ struct HistoryItem {
     .height('13%')
     .width('100%')
   }
+
 }
 
 export class HistoryInfo {
