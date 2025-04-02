@@ -1,10 +1,10 @@
 {
   "app": {
-    "bundleName": "com.example.myapplication",
-    "vendor": "example",
-    "versionCode": 1000000,
-    "versionName": "1.0.0",
-    "icon": "$media:app_icon",
-    "label": "$string:app_name"
+    "bundleName": "com.FengRuCup.WebAgent",  // 应用唯一标识符
+    "vendor": "",                        // 应用供应商信息
+    "versionCode": 1000000,                     // 内部版本管理码
+    "versionName": "1.0.0",                     // 用户可见版本号
+    "icon": "$media:app_icon",                  // 应用图标资源路径
+    "label": "$string:app_name"                 // 应用显示名称资源
   }
 }
