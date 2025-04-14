@@ -1,16 +1,16 @@
-import { DefaultCategories,Category } from '../model/Category';
-import {CategoryGrid}from '../components/CategoryGrid'
+import { DefaultCategories } from '../model/Category';
+import { CategoryGrid } from '../components/CategoryGrid';
 import { TabulateChoice } from '../components/TabulateChoice';
 import { DefaultTabulate } from '../model/Tabulate';
 import { RecommendTopics } from '../components/RecommendTopics';
 import { DefaultRecommends } from '../model/Recommend';
 
 @Component
-export struct HomePage{
-  @StorageLink('currentPage') currentPage:string =''
+export struct HomePage {
+  @StorageLink('currentPage') currentPage: string = ''
 
   build() {
-    Column(){
+    Column() {
       //分类网格
       CategoryGrid({
         categories: DefaultCategories,
@@ -21,10 +21,10 @@ export struct HomePage{
         tabulates: DefaultTabulate,
       }).margin({ bottom: 12 })
 
-      Row(){
-          RecommendTopics({
-            recommends: DefaultRecommends
-          })
+      Row() {
+        RecommendTopics({
+          recommends: DefaultRecommends
+        })
       }
       .alignItems(VerticalAlign.Bottom)
       .layoutWeight(1)
