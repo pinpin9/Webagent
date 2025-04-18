@@ -4,8 +4,9 @@ export class AppConfig {
 
   // 所有接口端点
   static readonly API_ENDPOINTS = {
-    sendTask: `${this.BASE_URL}/ws/mobile`,
-    subTask :`${this.BASE_URL}/subTask`
+    sendTask: `${this.BASE_URL}/setTask`,
+    sendSubTask :`${this.BASE_URL}/setAssign`,
+    getAction :`${this.BASE_URL}/setActions`
   }
 
   static readonly TIMEOUT = 30000

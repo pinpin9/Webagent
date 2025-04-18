@@ -11,7 +11,7 @@ export class SpeechRecognizerManager {
 
   public async intiEngine() {
     if(canIUse("SystemCapability.AI.SpeechRecognizer")) this.asrEngine = await speechRecognizer.createEngine(this.engineParams);
-    else console.log("不支持该功能")
+    else console.log("不支持语音功能")
   }
 
   // 开始语音识别，并提供回调函数，用于返回结果

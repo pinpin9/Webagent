@@ -1,4 +1,5 @@
 import { Category } from '../model/Category'
+import { router } from '@kit.ArkUI'
 
 @Component
 export struct CategoryGrid {
@@ -32,7 +33,7 @@ export struct CategoryGrid {
 struct CategoryItem {
   @Prop item: Category
   @State private isHovered: boolean = false
-
+  @StorageLink('currentPage') currentPage:string=''
   build() {
     Column() {
       Image(this.item.icon)
@@ -60,5 +61,8 @@ struct CategoryItem {
       offsetX: 2,
       offsetY: 2
     } : undefined)
+    .onClick(() => {
+      this.currentPage='sense'
+    })
   }
 }

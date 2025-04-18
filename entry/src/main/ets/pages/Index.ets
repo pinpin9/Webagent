@@ -9,9 +9,10 @@ import { SettingsPage } from './Settings';
 struct MainNavigation {
   @StorageLink('currentPage') currentPage:string ='home'
 
+  @Provide pageStack: NavPathStack = new NavPathStack()
+
   build() {
-    Column() {
-      Navigation() {
+      Navigation(this.pageStack) {
           this.CurrentPage()
           BottomNavBar({ currentPage: $currentPage })
             .width('100%')
@@ -22,9 +23,8 @@ struct MainNavigation {
       .navBarPosition(NavBarPosition.Start) // 标题栏置顶
       .mode(NavigationMode.Stack) // 堆栈导航模式
       .hideBackButton(true)
-    }
-    .width('100%')
-    .height('100%')
+      .width('100%')
+      .height('100%')
   }
 
   @Builder

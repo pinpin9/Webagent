@@ -29,8 +29,6 @@ export struct HomePage {
       .alignItems(VerticalAlign.Bottom)
       .layoutWeight(1)
 
-      // .position({bottom:0}) // 确保固定在底部
-      // .margin({ bottom: 12 })
     }
   }
 }
